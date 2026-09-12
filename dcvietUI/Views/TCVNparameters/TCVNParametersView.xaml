@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="dcvietUI.Views.TCVNparameters.TCVNParametersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Margin="6">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- HEADER -->
+        <TextBlock Grid.Row="0"
+                   Text="TCVN PARAMETERS"
+                   FontSize="10"
+                   FontWeight="SemiBold"
+                   Foreground="#555555"
+                   VerticalAlignment="Center"/>
+
+        <!-- CONTENT -->
+        <Grid Grid.Row="1"
+              Margin="0,3,0,0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="26"/>
+                <RowDefinition Height="26"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="28"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Grid.Column="0"
+                       Text="Ngắn hạn"
+                       FontSize="10"
+                       VerticalAlignment="Center"/>
+
+            <TextBox Grid.Row="0"
+                     Height="22"
+                     VerticalContentAlignment="Center"
+                     Text="{Binding ShortTermCrackLimit,
+                                    Mode=TwoWay,
+                                    UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" Margin="52,2,0,2"/>
+
+            <TextBlock Grid.Row="0"
+                       Grid.Column="2"
+                       Text="mm"
+                       FontSize="9"
+                       Foreground="#888888"
+                       Margin="4,0,0,0"
+                       VerticalAlignment="Center"/>
+
+
+            <TextBlock Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Dài hạn"
+                       FontSize="10"
+                       VerticalAlignment="Center"/>
+
+            <TextBox Grid.Row="1"
+                     Height="22"
+                     VerticalContentAlignment="Center"
+                     Text="{Binding LongTermCrackLimit,
+                                    Mode=TwoWay,
+                                    UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" Margin="52,2,0,2"/>
+
+            <TextBlock Grid.Row="1"
+                       Grid.Column="2"
+                       Text="mm"
+                       FontSize="9"
+                       Foreground="#888888"
+                       Margin="4,0,0,0"
+                       VerticalAlignment="Center"/>
+
+        </Grid>
+
+    </Grid>
+
+</UserControl>
+

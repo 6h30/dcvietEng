@@ -1,0 +1,780 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ===================================================== -->
+    <!-- DATA CELL BORDER -->
+    <!-- ===================================================== -->
+
+    <Style x:Key="BeamCellBorder"
+           TargetType="Border">
+
+        <Setter Property="BorderBrush"
+                Value="#BFBFBF"/>
+
+        <Setter Property="BorderThickness"
+                Value="0,0,1,1"/>
+
+        <Setter Property="Background"
+                Value="White"/>
+
+    </Style>
+
+
+    <!-- ===================================================== -->
+    <!-- DATA CELL TEXT -->
+    <!-- ===================================================== -->
+
+    <Style x:Key="BeamCellText"
+           TargetType="TextBlock">
+
+        <Setter Property="HorizontalAlignment"
+                Value="Center"/>
+
+        <Setter Property="VerticalAlignment"
+                Value="Center"/>
+
+        <Setter Property="TextAlignment"
+                Value="Center"/>
+
+        <Setter Property="FontSize"
+                Value="12"/>
+
+        <Setter Property="Margin"
+                Value="3,0"/>
+
+    </Style>
+
+
+    <!-- ===================================================== -->
+    <!-- HEADER CELL -->
+    <!-- ===================================================== -->
+
+    <Style x:Key="BeamHeaderCell"
+           TargetType="Border">
+
+        <Setter Property="Background"
+                Value="#F2F2F2"/>
+
+        <Setter Property="BorderBrush"
+                Value="#AFAFAF"/>
+
+        <Setter Property="BorderThickness"
+                Value="0,0,1,1"/>
+
+    </Style>
+
+
+    <!-- ===================================================== -->
+    <!-- HEADER TEXT -->
+    <!-- ===================================================== -->
+
+    <Style x:Key="BeamHeaderText"
+           TargetType="TextBlock">
+
+        <Setter Property="HorizontalAlignment"
+                Value="Center"/>
+
+        <Setter Property="VerticalAlignment"
+                Value="Center"/>
+
+        <Setter Property="TextAlignment"
+                Value="Center"/>
+
+        <Setter Property="FontWeight"
+                Value="SemiBold"/>
+
+        <Setter Property="FontSize"
+                Value="12"/>
+
+        <Setter Property="TextWrapping"
+                Value="Wrap"/>
+
+        <Setter Property="Margin"
+                Value="2"/>
+
+    </Style>
+
+
+    <!-- ===================================================== -->
+    <!-- CHECK BORDER -->
+    <!-- ===================================================== -->
+
+    <Style x:Key="BeamCheckBorder"
+       TargetType="Border"
+       BasedOn="{StaticResource BeamCellBorder}">
+
+        <Style.Triggers>
+
+            <DataTrigger Binding="{Binding Tag,
+                              RelativeSource={RelativeSource Self}}"
+                     Value="True">
+
+                <Setter Property="Background"
+                    Value="#E8F5E9"/>
+
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Tag,
+                              RelativeSource={RelativeSource Self}}"
+                     Value="False">
+
+                <Setter Property="Background"
+                    Value="#FDECEC"/>
+
+            </DataTrigger>
+
+        </Style.Triggers>
+
+    </Style>
+
+
+    <!-- ===================================================== -->
+    <!-- CHECK TEXT -->
+    <!-- ===================================================== -->
+
+    <Style x:Key="BeamCheckText"
+       TargetType="TextBlock"
+       BasedOn="{StaticResource BeamCellText}">
+
+        <Setter Property="FontWeight"
+            Value="SemiBold"/>
+
+        <Style.Triggers>
+
+            <DataTrigger Binding="{Binding Tag,
+                              RelativeSource={
+                                  RelativeSource AncestorType=Border}}"
+                     Value="True">
+
+                <Setter Property="Foreground"
+                    Value="#2E7D32"/>
+
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Tag,
+                              RelativeSource={
+                                  RelativeSource AncestorType=Border}}"
+                     Value="False">
+
+                <Setter Property="Foreground"
+                    Value="#B3261E"/>
+
+            </DataTrigger>
+
+        </Style.Triggers>
+
+    </Style>
+
+
+    <!-- ===================================================== -->
+    <!-- ONE DATA ROW -->
+    <!-- ===================================================== -->
+
+    <!-- ===================================================== -->
+    <!-- ONE ROW OF BEAM DATA -->
+    <!-- ===================================================== -->
+
+    <DataTemplate x:Key="BeamDataRowTemplate">
+
+        <Grid Height="26">
+
+            <Grid.ColumnDefinitions>
+
+                <!-- FORCE -->
+                <ColumnDefinition SharedSizeGroup="ForceType"/>
+                <ColumnDefinition SharedSizeGroup="ForceLeft"/>
+                <ColumnDefinition SharedSizeGroup="ForceMiddle"/>
+                <ColumnDefinition SharedSizeGroup="ForceRight"/>
+
+                <!-- REBAR -->
+                <ColumnDefinition SharedSizeGroup="MainRebar"/>
+                <ColumnDefinition SharedSizeGroup="RebarLeft"/>
+                <ColumnDefinition SharedSizeGroup="RebarMiddle"/>
+                <ColumnDefinition SharedSizeGroup="RebarRight"/>
+
+                <!-- FLEXURE -->
+                <ColumnDefinition SharedSizeGroup="FlexureType"/>
+                <ColumnDefinition SharedSizeGroup="FlexureLeft"/>
+                <ColumnDefinition SharedSizeGroup="FlexureMiddle"/>
+                <ColumnDefinition SharedSizeGroup="FlexureRight"/>
+
+                <!-- CRACK -->
+                <ColumnDefinition SharedSizeGroup="CrackType"/>
+                <ColumnDefinition SharedSizeGroup="CrackLeft"/>
+                <ColumnDefinition SharedSizeGroup="CrackMiddle"/>
+                <ColumnDefinition SharedSizeGroup="CrackRight"/>
+
+                <!-- CHECK -->
+                <ColumnDefinition SharedSizeGroup="Check"/>
+
+            </Grid.ColumnDefinitions>
+
+
+            <!-- ================= FORCE ================= -->
+
+            <Border Grid.Column="0"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding ForceType}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+            <Border Grid.Column="1"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding ForceLeft, StringFormat=F1}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+            <Border Grid.Column="2"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding ForceMiddle, StringFormat=F1}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+            <Border Grid.Column="3"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding ForceRight, StringFormat=F1}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+
+            <!-- ================= REBAR ================= -->
+
+            <Border Grid.Column="4"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding MainRebar}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+            <Border Grid.Column="5"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding RebarLeft}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+            <Border Grid.Column="6"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding RebarMiddle}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+            <Border Grid.Column="7"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding RebarRight}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+
+            <!-- ================= FLEXURE ================= -->
+
+            <Border Grid.Column="8"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding FlexureType}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+            <Border Grid.Column="9"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding FlexureLeft, StringFormat=F1}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+            <Border Grid.Column="10"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding FlexureMiddle, StringFormat=F1}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+            <Border Grid.Column="11"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding FlexureRight, StringFormat=F1}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+
+            <!-- ================= CRACK ================= -->
+
+            <Border Grid.Column="12"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding CrackType}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+            <Border Grid.Column="13"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding CrackLeft, StringFormat=F3}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+            <Border Grid.Column="14"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding CrackMiddle, StringFormat=F3}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+            <Border Grid.Column="15"
+                Style="{StaticResource BeamCellBorder}">
+                <TextBlock Text="{Binding CrackRight, StringFormat=F3}"
+                       Style="{StaticResource BeamCellText}"/>
+            </Border>
+
+
+            <!-- ================= CHECK ================= -->
+
+            <Border Grid.Column="16"
+                Style="{StaticResource BeamCheckBorder}">
+
+                <TextBlock Style="{StaticResource BeamCheckText}"/>
+
+            </Border>
+
+        </Grid>
+
+    </DataTemplate>
+
+    <!-- ===================================================== -->
+    <!-- BEAM HEADER TEMPLATE -->
+    <!-- ===================================================== -->
+
+    <DataTemplate x:Key="BeamHeaderTemplate">
+
+        <Grid>
+
+            <!-- ================================================= -->
+            <!-- 22 COLUMNS -->
+            <!-- ================================================= -->
+
+            <Grid.ColumnDefinitions>
+
+                <!-- GENERAL -->
+                <ColumnDefinition Width="65"
+                              SharedSizeGroup="Story"/>
+
+                <ColumnDefinition Width="90"
+                              SharedSizeGroup="BeamEtabs"/>
+
+                <ColumnDefinition Width="100"
+                              SharedSizeGroup="BeamDrawing"/>
+
+
+                <!-- SECTION -->
+                <ColumnDefinition Width="50"
+                              SharedSizeGroup="SectionB"/>
+
+                <ColumnDefinition Width="50"
+                              SharedSizeGroup="SectionH"/>
+
+
+                <!-- FORCE -->
+                <ColumnDefinition Width="90"
+                              SharedSizeGroup="ForceType"/>
+
+                <ColumnDefinition Width="70"
+                              SharedSizeGroup="ForceLeft"/>
+
+                <ColumnDefinition Width="70"
+                              SharedSizeGroup="ForceMiddle"/>
+
+                <ColumnDefinition Width="70"
+                              SharedSizeGroup="ForceRight"/>
+
+
+                <!-- REBAR -->
+                <ColumnDefinition Width="65"
+                              SharedSizeGroup="MainRebar"/>
+
+                <ColumnDefinition Width="75"
+                              SharedSizeGroup="RebarLeft"/>
+
+                <ColumnDefinition Width="75"
+                              SharedSizeGroup="RebarMiddle"/>
+
+                <ColumnDefinition Width="75"
+                              SharedSizeGroup="RebarRight"/>
+
+
+                <!-- FLEXURE -->
+                <ColumnDefinition Width="55"
+                              SharedSizeGroup="FlexureType"/>
+
+                <ColumnDefinition Width="70"
+                              SharedSizeGroup="FlexureLeft"/>
+
+                <ColumnDefinition Width="70"
+                              SharedSizeGroup="FlexureMiddle"/>
+
+                <ColumnDefinition Width="70"
+                              SharedSizeGroup="FlexureRight"/>
+
+
+                <!-- CRACK -->
+                <ColumnDefinition Width="70"
+                              SharedSizeGroup="CrackType"/>
+
+                <ColumnDefinition Width="70"
+                              SharedSizeGroup="CrackLeft"/>
+
+                <ColumnDefinition Width="70"
+                              SharedSizeGroup="CrackMiddle"/>
+
+                <ColumnDefinition Width="70"
+                              SharedSizeGroup="CrackRight"/>
+
+
+                <!-- CHECK -->
+                <ColumnDefinition Width="80"
+                              SharedSizeGroup="Check"/>
+
+            </Grid.ColumnDefinitions>
+
+
+            <!-- ================================================= -->
+            <!-- 3 HEADER ROWS -->
+            <!-- ================================================= -->
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="22"/>
+
+            </Grid.RowDefinitions>
+
+
+            <!-- ================================================= -->
+            <!-- GENERAL -->
+            <!-- ================================================= -->
+
+            <Border Grid.Column="0"
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Tầng"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="1"
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Tên dầm ETABS"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="2"
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Tên dầm bản vẽ"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <!-- ================================================= -->
+            <!-- SECTION -->
+            <!-- ================================================= -->
+
+            <Border Grid.Column="3"
+                Grid.ColumnSpan="2"
+                Grid.Row="0"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Kích thước dầm"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="3"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="b&#x0a;(mm)"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="4"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="h&#x0a;(mm)"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <!-- ================================================= -->
+            <!-- FORCE -->
+            <!-- ================================================= -->
+
+            <Border Grid.Column="5"
+                Grid.ColumnSpan="4"
+                Grid.Row="0"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Nội lực dầm"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="5"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Type"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="6"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Trái"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="7"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Giữa"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="8"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Phải"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <!-- ================================================= -->
+            <!-- REBAR -->
+            <!-- ================================================= -->
+
+            <Border Grid.Column="9"
+                Grid.ColumnSpan="4"
+                Grid.Row="0"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Bố trí cốt thép"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="9"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Type"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="10"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Trái"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="11"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Giữa"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="12"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Phải"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <!-- ================================================= -->
+            <!-- RESULT -->
+            <!-- ================================================= -->
+
+            <Border Grid.Column="13"
+                Grid.ColumnSpan="8"
+                Grid.Row="0"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Khả năng chịu lực &amp; Bề rộng vết nứt"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <!-- ================================================= -->
+            <!-- FLEXURE -->
+            <!-- ================================================= -->
+
+            <Border Grid.Column="13"
+                Grid.ColumnSpan="4"
+                Grid.Row="1"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Khả năng chịu uốn"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="13"
+                Grid.Row="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Type"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="14"
+                Grid.Row="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Trái"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="15"
+                Grid.Row="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Giữa"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="16"
+                Grid.Row="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Phải"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <!-- ================================================= -->
+            <!-- CRACK -->
+            <!-- ================================================= -->
+
+            <Border Grid.Column="17"
+                Grid.ColumnSpan="4"
+                Grid.Row="1"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Bề rộng vết nứt"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="17"
+                Grid.Row="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Type"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="18"
+                Grid.Row="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Trái"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="19"
+                Grid.Row="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Giữa"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <Border Grid.Column="20"
+                Grid.Row="2"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Phải"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+
+            <!-- ================================================= -->
+            <!-- CHECK -->
+            <!-- ================================================= -->
+
+            <Border Grid.Column="21"
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                Style="{StaticResource BeamHeaderCell}">
+
+                <TextBlock Text="Kiểm tra"
+                       Style="{StaticResource BeamHeaderText}"/>
+
+            </Border>
+
+        </Grid>
+
+    </DataTemplate>
+
+</ResourceDictionary>
+

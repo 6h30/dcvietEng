@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\dcviet.Core\dcviet.Core.csproj" />
+    <ProjectReference Include="..\..\dcvietAdapter.Etabs\dcvietAdapter.Etabs.csproj" />
+    <ProjectReference Include="..\dcvietProcessor.Design\dcvietProcessor.Design.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\Beam\" />
+  </ItemGroup>
+
+</Project>

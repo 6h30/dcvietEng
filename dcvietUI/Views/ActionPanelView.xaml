@@ -1,0 +1,111 @@
+﻿ <UserControl x:Class="dcvietUI.Views.ActionPanelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Height="34">
+
+        <Grid.ColumnDefinitions>
+
+            <!-- DATA -->
+            <ColumnDefinition Width="Auto"/>
+
+            <!-- SEPARATOR -->
+            <ColumnDefinition Width="Auto"/>
+
+            <!-- CALCULATION -->
+            <ColumnDefinition Width="Auto"/>
+
+            <!-- SEPARATOR -->
+            <ColumnDefinition Width="Auto"/>
+
+            <!-- OUTPUT -->
+            <ColumnDefinition Width="Auto"/>
+
+            <ColumnDefinition Width="Auto"/>
+            <!-- FILL REMAINING SPACE -->
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+
+
+        <!-- ================================================= -->
+        <!-- DATA -->
+        <!-- ================================================= -->
+
+        <StackPanel Grid.Column="0"
+                    Orientation="Horizontal">
+
+            <Button Content="Nhập dữ liệu"
+                    MinWidth="100"
+                    Height="28"
+                    Margin="0,0,4,0"
+                    Style="{StaticResource ActionButton}"
+                    Command="{Binding ImportDataCommand}"/>
+
+            <Button Content="Trích nội lực"
+                    MinWidth="100"
+                    Height="28"
+                    Style="{StaticResource ActionButton}"
+                    Command="{Binding ExtractForcesCommand}"/>
+
+        </StackPanel>
+
+
+        <!-- ================================================= -->
+        <!-- SEPARATOR -->
+        <!-- ================================================= -->
+
+        <Border Grid.Column="1"
+                Width="1"
+                Height="22"
+                Margin="10,0"
+                Background="#D0D0D0"
+                VerticalAlignment="Center"/>
+
+
+        <!-- ================================================= -->
+        <!-- CALCULATION -->
+        <!-- ================================================= -->
+
+        <Button Grid.Column="2"
+                Content="Tính toán"
+                MinWidth="100"
+                Height="28"
+                Style="{StaticResource ActionButton}"
+                Command="{Binding CalculateCommand}"/>
+
+
+        <!-- ================================================= -->
+        <!-- SEPARATOR -->
+        <!-- ================================================= -->
+
+        <Border Grid.Column="3"
+                Width="1"
+                Height="22"
+                Margin="10,0"
+                Background="#D0D0D0"
+                VerticalAlignment="Center"/>
+
+
+        <!-- ================================================= -->
+        <!-- OUTPUT -->
+        <!-- ================================================= -->
+
+        <Button Grid.Column="4"
+                Content="Xuất Excel"
+                MinWidth="100"
+                Height="28"
+                Style="{StaticResource ActionButton}"
+                Command="{Binding ExportExcelCommand}"/>
+        
+        <Button Grid.Column="5"
+        Content="Tạo Báo cáo"
+        MinWidth="100"
+        Height="28"
+        Style="{StaticResource ActionButton}"
+        Command="{Binding CreateReportCommand}"/>
+
+    </Grid>
+
+</UserControl>
+

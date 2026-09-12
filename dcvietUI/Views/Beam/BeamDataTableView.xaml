@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="dcvietUI.Views.Beam.BeamDataTableView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:beam="clr-namespace:dcvietUI.Views.Beam">
+
+    <StackPanel Grid.IsSharedSizeScope="True"
+                Orientation="Vertical">
+
+        <!-- HEADER -->
+        <ContentControl Content="{Binding}"
+                        ContentTemplate="{StaticResource BeamHeaderTemplate}"
+                        HorizontalAlignment="Left"/>
+
+
+        <!-- SAMPLE BEAM 1 -->
+        <beam:BeamDataBlockView/>
+
+
+        <!-- SAMPLE BEAM 2 -->
+        <beam:BeamDataBlockView/>
+
+
+        <!-- SAMPLE BEAM 3 -->
+        <beam:BeamDataBlockView/>
+
+    </StackPanel>
+
+</UserControl>

@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="dcvietUI.Views.LoadCombination.LoadCombinationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Margin="6">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- HEADER -->
+        <TextBlock Grid.Row="0"
+                   Text="LOAD COMBINATION"
+                   FontSize="10"
+                   FontWeight="SemiBold"
+                   Foreground="#555555"
+                   VerticalAlignment="Center"/>
+
+        <!-- CONTENT -->
+        <Grid Grid.Row="1"
+              Margin="0,3,0,0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="24"/>
+                <RowDefinition Height="24"/>
+                <RowDefinition Height="24"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Grid.Column="0"
+                       Text="TTGH I"
+                       FontSize="10"
+                       VerticalAlignment="Center"/>
+
+            <ComboBox Grid.Row="0"
+                      Grid.Column="1"
+                      Height="22"
+                      SelectedIndex="0">
+                <ComboBoxItem Content="ULS"/>
+            </ComboBox>
+
+            <TextBlock Grid.Row="1"
+                       Grid.Column="0"
+                       Text="TTGH II"
+                       FontSize="10"
+                       VerticalAlignment="Center"/>
+
+            <ComboBox Grid.Row="1"
+                      Grid.Column="1"
+                      Height="22"
+                      SelectedIndex="0">
+                <ComboBoxItem Content="M1"/>
+            </ComboBox>
+
+            <TextBlock Grid.Row="2"
+                       Grid.Column="0"
+                       Text="TTGH II"
+                       FontSize="10"
+                       VerticalAlignment="Center"/>
+
+            <ComboBox Grid.Row="2"
+                      Grid.Column="1"
+                      Height="22"
+                      SelectedIndex="0">
+                <ComboBoxItem Content="M2"/>
+            </ComboBox>
+
+        </Grid>
+
+    </Grid>
+
+</UserControl>
+

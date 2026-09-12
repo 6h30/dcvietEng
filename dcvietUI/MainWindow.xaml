@@ -1,0 +1,42 @@
+﻿<Window x:Class="dcvietUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:windows="clr-namespace:dcvietUI.Windows"
+        Title="DCVIET"
+        Width="1500"
+        Height="850"
+        MinWidth="1200"
+        MinHeight="650"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource WindowBackgroundBrush}">
+
+    <Grid Margin="8">
+
+        <TabControl HorizontalContentAlignment="Stretch"
+                    VerticalContentAlignment="Stretch">
+
+            <TabItem Header="Beam Design"
+                     HorizontalContentAlignment="Stretch"
+                     VerticalContentAlignment="Stretch">
+
+                <windows:BeamDesignWindow
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"/>
+
+            </TabItem>
+
+            <TabItem Header="Beam Mapping"
+                     HorizontalContentAlignment="Stretch"
+                     VerticalContentAlignment="Stretch">
+
+                <windows:BeamMappingView
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"/>
+
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+
+</Window>

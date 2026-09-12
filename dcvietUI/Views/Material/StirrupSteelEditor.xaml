@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="dcvietUI.Views.Material.StirrupSteelEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="150"
+             d:DesignHeight="142">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="20"/>
+ 
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="58"/>
+            <ColumnDefinition Width="8"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Grid.ColumnSpan="3"
+                   Text="THÉP ĐAI"
+                   FontSize="10"
+                   FontWeight="SemiBold"
+                   Foreground="#555555"
+                   VerticalAlignment="Center"/>
+
+        <!-- STIRRUP 1 -->
+
+        <TextBlock Grid.Row="1"
+                   Text="Nhóm thép"
+                   FontSize="10"
+                   VerticalAlignment="Center"/>
+
+        <ComboBox Grid.Row="1"
+                  Grid.Column="2"
+                  Margin="0,1"
+                  ItemsSource="{Binding StirrupSteelGrades}"
+                  SelectedItem="{Binding SelectedStirrupSteel1,
+                                         Mode=TwoWay,
+                                         UpdateSourceTrigger=PropertyChanged}"
+                  DisplayMemberPath="Grade"
+                  FontSize="10"
+                  VerticalContentAlignment="Center"/>
+
+        <TextBlock Grid.Row="2"
+                   Text="Rsw"
+                   FontSize="10"
+                   VerticalAlignment="Center"/>
+
+        <TextBlock Grid.Row="2"
+                   Grid.Column="2"
+                   Text="{Binding SelectedStirrupSteel1.Rsw,
+                                  StringFormat={}{0:F0} MPa}"
+                   FontSize="10"
+                   VerticalAlignment="Center"/>
+
+        <!-- STIRRUP 2 -->
+
+        <TextBlock Grid.Row="3"
+                   Text="Nhóm thép"
+                   FontSize="10"
+                   VerticalAlignment="Center"/>
+
+        <ComboBox Grid.Row="3"
+                  Grid.Column="2"
+                  Margin="0,1"
+                  ItemsSource="{Binding StirrupSteelGrades}"
+                  SelectedItem="{Binding SelectedStirrupSteel2,
+                                         Mode=TwoWay,
+                                         UpdateSourceTrigger=PropertyChanged}"
+                  DisplayMemberPath="Grade"
+                  FontSize="10"
+                  VerticalContentAlignment="Center"/>
+
+        <TextBlock Grid.Row="4"
+                   Text="Rsw"
+                   FontSize="10"
+                   VerticalAlignment="Center"/>
+
+        <TextBlock Grid.Row="4"
+                   Grid.Column="2"
+                   Text="{Binding SelectedStirrupSteel2.Rsw,
+                                  StringFormat={}{0:F0} MPa}"
+                   FontSize="10"
+                   VerticalAlignment="Center"/>
+
+    </Grid>
+
+</UserControl>

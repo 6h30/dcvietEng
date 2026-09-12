@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+	  <LangVersion>7.3</LangVersion>
+	  <ImplicitUsings>disable</ImplicitUsings>
+	  <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\dcvietAdapter.Etabs\dcvietAdapter.Etabs.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ETABS2016">
+      <HintPath>..\..\..\ETABS2016.dll</HintPath>
+    </Reference>
+    <Reference Include="ETABSv17">
+      <HintPath>..\..\..\ETABSv17.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

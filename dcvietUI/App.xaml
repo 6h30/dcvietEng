@@ -1,0 +1,30 @@
+﻿<Application x:Class="dcvietUI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:dcvietUI"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary
+                    Source="/dcvietUI;component/Styles/Colors.xaml"/>
+                
+                <ResourceDictionary
+                    Source="/dcvietUI;component/Styles/TextStyles.xaml"/>
+
+                <ResourceDictionary
+                    Source="/dcvietUI;component/Styles/ControlStyles.xaml"/>
+
+                <ResourceDictionary
+                    Source="/dcvietUI;component/Styles/GridStyles.xaml"/>
+
+                <ResourceDictionary 
+                    Source="/Styles/BeamTableStyles.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

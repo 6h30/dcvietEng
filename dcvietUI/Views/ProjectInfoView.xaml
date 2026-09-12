@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="dcvietUI.Views.ProjectInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+
+            <!-- Project -->
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="2*"/>
+
+            <!-- Client -->
+            <ColumnDefinition Width="65"/>
+            <ColumnDefinition Width="1.2*"/>
+
+            <!-- Project No -->
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="140"/>
+
+        </Grid.ColumnDefinitions>
+
+        <!-- PROJECT -->
+        <TextBlock Grid.Column="0"
+                   Text="Project:"
+                   Margin="0,0,6,0"
+                   FontWeight="SemiBold"
+                   VerticalAlignment="Center"/>
+
+        <TextBox Grid.Column="1"
+                 Height="28"
+                 Margin="0,0,16,0"
+                 Style="{StaticResource InputTextBox}"
+                 Text="{Binding Project.ProjectName,
+                                UpdateSourceTrigger=PropertyChanged}"/>
+
+        <!-- CLIENT -->
+        <TextBlock Grid.Column="2"
+                   Text="Client:"
+                   Margin="0,0,6,0"
+                   FontWeight="SemiBold"
+                   VerticalAlignment="Center"/>
+
+        <TextBox Grid.Column="3"
+                 Height="28"
+                 Margin="0,0,16,0"
+                 Style="{StaticResource InputTextBox}"
+                 Text="{Binding Project.Client,
+                                UpdateSourceTrigger=PropertyChanged}"/>
+
+        <!-- PROJECT NUMBER -->
+        <TextBlock Grid.Column="4"
+                   Text="Project No:"
+                   Margin="0,0,6,0"
+                   FontWeight="SemiBold"
+                   VerticalAlignment="Center"/>
+
+        <TextBox Grid.Column="5"
+                 Height="28"
+                 Style="{StaticResource InputTextBox}"
+                 Text="{Binding Project.ProjectNumber,
+                                UpdateSourceTrigger=PropertyChanged}"/>
+
+    </Grid>
+
+</UserControl>
